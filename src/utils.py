@@ -24,9 +24,10 @@ def read_data_time(file):
             data_time_str = " ".join(info["date"].split("T"))
             to_info = info.get("to", None)
             description_info = info.get("description", None)
-            from_info = info.get("from", None)
+            from_info = info.get("from")
             amount_info = info.get("operationAmount", None)
             data_time_obj = datetime.datetime.strptime(data_time_str, '%Y-%m-%d %H:%M:%S.%f')
             date_all.extend([[data_time_obj, to_info, description_info, from_info, amount_info]])
             sorted_date_all = sorted(date_all, reverse=True)
     return sorted_date_all
+
