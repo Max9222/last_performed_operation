@@ -19,8 +19,11 @@ def main():
     dictionary_five = dictionary[0:5]
     for i in dictionary_five:
         print(Fore.BLUE + "")
-        print(f'{i[0].day}-{i[0].month}-{i[0].year} {i[2]}')
-        print(f"{i[1][0:-12]}****** -> {i[1][:4]} **{i[1][-4:]}")
+        print(f'{i[0].day}.{i[0].month}.{i[0].year} {i[2]}')
+        if i[3] == None:
+            print(f"{i[3]}  -> {i[1][:4]} **{i[1][-4:]}")   # Проверяем на отсутствие счета отправления
+        else:
+            print(f"{i[3][0:-12]} {i[3][17:19]}** **** {i[3][-4:]} -> {i[1][:4]} **{i[1][-4:]}")
         print(f"{i[4]['amount']} {i[4]['currency']['name']}")
         print()
 
